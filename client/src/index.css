@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-[500].ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-ExtraLight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* .ql-editor {
+  width: 30vw;
+  height: 40vh;
+} */
+.ql-container {
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 5px;
+}
+
+.ql-toolbar {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.content h1 {
+  font-size: 6vw;
+}
+
+.custom-scrollbar {
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+/* Custom scrollbar for Webkit browsers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+  scrollbar-width: thin;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(0, 60, 139);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+/* Custom scrollbar for Firefox */
+.custom-scrollbar {
+  scrollbar-track-color: transparent;
+  scrollbar-thumb-color: #020202;
+}
+
+.custom-scrollbar::-moz-scrollbar-thumb {
+  border-radius: 6px; /* Rounded corners of the thumb for Firefox */
+}
