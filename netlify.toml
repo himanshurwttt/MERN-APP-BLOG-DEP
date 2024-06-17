@@ -1,10 +1,10 @@
 [build]
-  base = "client/dist"  # Specify the correct base directory here
-  command = "npm run build"  # Your build command
+  base = "client/dist"  # Replace with your base directory path
+  command = "npm run build"  # Command to build your project
   publish = "client/dist"  # Directory to deploy
 
 [build.environment]
-  NODE_VERSION = "14"  # Example of environment variable
+  NODE_VERSION = "14"  # Example of setting an environment variable
 
 [[redirects]]
   from = "/*"
@@ -13,4 +13,3 @@
 
 [context.production.environment]
   NODE_ENV = "production"
-
