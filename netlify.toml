@@ -8,6 +8,7 @@
   command = "npm run build"
   # Directory that should be deployed
   publish = "client/dist"
+  environment = { NODE_ENV = "production" }
 
 # Redirects settings
 [[redirects]]
@@ -20,6 +21,7 @@
 [build.environment]
   # Specify the Node.js version (adjust according to your project's requirements)
   NODE_VERSION = "14"
+   node_modules/vite = "*"
 
 # Production environment variables
 [context.production.environment]
