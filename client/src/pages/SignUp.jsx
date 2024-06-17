@@ -17,6 +17,7 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 const SignUp = () => {
+  const shouldPrefetch = true;
   const [type, setType] = useState("password");
   const [formData, setFormData] = useState({});
   const [formError, setFormError] = useState(null);
@@ -211,7 +212,11 @@ const SignUp = () => {
               </div>
               <p className="text-sm">
                 don't have an account?{" "}
-                <Link className="text-blue-600" to={"/signin"}>
+                <Link
+                  className="text-blue-600"
+                  to={"/signin"}
+                  prefetch={shouldPrefetch ? "true" : undefined}
+                >
                   SignIn
                 </Link>
               </p>

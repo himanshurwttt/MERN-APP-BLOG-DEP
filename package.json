@@ -18,12 +18,9 @@
     "winston": "^3.13.0"
   },
   "scripts": {
-    "install-all": "npm install && cd client && npm install",
-    "dev": "concurrently \"npm run dev-backend\" \"npm run dev-frontend\"",
-    "dev-backend": "nodemon api/index.js",
-    "dev-frontend": "cd client && npm run dev",
-    "build": "cd client && npm run build",
-    "start": "npm run build && node api/index.js"
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",

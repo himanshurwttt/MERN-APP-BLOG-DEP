@@ -8,6 +8,7 @@ import useClickOutside from "../hooks/useClickOutSide"; // Adjust the import pat
 import { signOutSuccess } from "../redux/user/userSlice";
 
 export default function Header() {
+  const shouldPrefetch = true;
   const navigate = useNavigate();
   const [showbox, setShowbox] = useState(false);
   const location = useLocation();
@@ -89,7 +90,7 @@ export default function Header() {
       <nav className="w-full text-sm p-1 justify-center items-center max-w-screen-2xl mx-auto relative z-50 ">
         <div className="h-16 bg-blue-900 shadow-2xl border border-blue-900 rounded-2xl flex justify-between items-center ">
           <div className="left">
-            <Link to={"/"}>
+            <Link to={"/"} prefetch={shouldPrefetch ? "true" : undefined}>
               <div className="logo px-5 font-bold text-white">BLOGS</div>
             </Link>
           </div>
@@ -98,17 +99,34 @@ export default function Header() {
             <div className="hidden md:flex">
               <ul className="flex gap-10 text-white font-sans mx-5">
                 {/* <li> */}
-                <Link to={"/"}>Home</Link>
+                <Link to={"/"} prefetch={shouldPrefetch ? "true" : undefined}>
+                  Home
+                </Link>
                 {/* </li> */}
                 {/* <li> */}
-                <Link to={"/about"}>About</Link>
+                <Link
+                  to={"/about"}
+                  prefetch={shouldPrefetch ? "true" : undefined}
+                >
+                  About
+                </Link>
                 {/* </li> */}
                 {/* <li> */}
-                <Link to={"/posts"}>posts</Link>
+                <Link
+                  to={"/posts"}
+                  prefetch={shouldPrefetch ? "true" : undefined}
+                >
+                  posts
+                </Link>
                 {/* </li> */}
                 {/* <li> */}
                 {currentUser && (
-                  <Link to={"/dashboard?tab=profile"}>Profile</Link>
+                  <Link
+                    to={"/dashboard?tab=profile"}
+                    prefetch={shouldPrefetch ? "true" : undefined}
+                  >
+                    Profile
+                  </Link>
                 )}
                 {/* </li> */}
               </ul>
@@ -139,6 +157,7 @@ export default function Header() {
                             <Link to={"/dashboard?tab=profile"}>
                               <p
                                 onClick={handleProfileBox}
+                                prefetch={shouldPrefetch ? "true" : undefined}
                                 className="p-1 py-2 rounded-md hover:bg-white hover:text-black duration-200"
                               >
                                 Dashboard
@@ -149,6 +168,7 @@ export default function Header() {
                           <Link>
                             <p
                               onClick={handleSignOut}
+                              prefetch={shouldPrefetch ? "true" : undefined}
                               className="p-1 py-2 rounded-md hover:bg-white hover:text-black duration-200"
                             >
                               sign out
@@ -164,13 +184,19 @@ export default function Header() {
             {currentUser ? (
               ""
             ) : location.pathname === "/signin" ? (
-              <Link to={"/signup"}>
+              <Link
+                to={"/signup"}
+                prefetch={shouldPrefetch ? "true" : undefined}
+              >
                 <button className="border active:scale-[0.9] shadow-md border-white text-white w-20 h-10 rounded-lg md:hover:bg-white md:hover:text-black duration-300">
                   Sign Up
                 </button>
               </Link>
             ) : (
-              <Link to={"/signin"}>
+              <Link
+                to={"/signin"}
+                prefetch={shouldPrefetch ? "true" : undefined}
+              >
                 <button className="border active:scale-[0.9] shadow-md border-white text-white w-20 h-10 rounded-lg md:hover:bg-white md:hover:text-black duration-300">
                   Sign In
                 </button>
@@ -191,17 +217,37 @@ export default function Header() {
                   className="absolute flex right-0 top-12 mt-4 rounded-2xl bg-blue-900 text-white text-lg w-28 min-h-9 px-2  items-center gap-2 p-1 flex-col"
                 >
                   <li onClick={handleLinkShow} className="p-1">
-                    <Link to={"/"}>Home</Link>
+                    <Link
+                      to={"/"}
+                      prefetch={shouldPrefetch ? "true" : undefined}
+                    >
+                      Home
+                    </Link>
                   </li>
                   <li onClick={handleLinkShow} className="p-1">
-                    <Link to={"/about"}>About</Link>
+                    <Link
+                      to={"/about"}
+                      prefetch={shouldPrefetch ? "true" : undefined}
+                    >
+                      About
+                    </Link>
                   </li>
                   <li onClick={handleLinkShow} className="p-1">
-                    <Link to={"/posts"}>posts</Link>
+                    <Link
+                      to={"/posts"}
+                      prefetch={shouldPrefetch ? "true" : undefined}
+                    >
+                      posts
+                    </Link>
                   </li>
                   {currentUser && (
                     <li onClick={handleLinkShow} className="p-1">
-                      <Link to={"/dashboard?tab=profile"}>Profile</Link>
+                      <Link
+                        to={"/dashboard?tab=profile"}
+                        prefetch={shouldPrefetch ? "true" : undefined}
+                      >
+                        Profile
+                      </Link>
                     </li>
                   )}
                 </ul>

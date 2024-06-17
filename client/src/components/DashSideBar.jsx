@@ -4,6 +4,7 @@ import { signOutSuccess } from "../redux/user/userSlice";
 import { IoCreateOutline } from "react-icons/io5";
 export default function Component() {
   const { currentUser } = useSelector((state) => state.user);
+  const shouldPrefetch = true;
   const dispatch = useDispatch();
   const handleSignOut = async () => {
     try {
@@ -26,7 +27,10 @@ export default function Component() {
      text-white z-50"
     >
       <div className="md:flex hidden items-center h-16 px-4 border-b border-gray-800">
-        <Link className="flex items-center gap-2 text-lg font-[500] ">
+        <Link
+          className="flex items-center gap-2 text-lg font-[500] "
+          prefetch={shouldPrefetch ? "true" : undefined}
+        >
           <span className="">BLOG</span>
         </Link>
       </div>
@@ -46,6 +50,7 @@ export default function Component() {
               <Link
                 className="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-blue-800 active:bg-blue-700 rounded-lg w-full h-full"
                 to={"/createpost"}
+                prefetch={shouldPrefetch ? "true" : undefined}
               >
                 <IoCreateOutline className="w-5 h-5" />
                 <span className="hidden md:inline">Create post</span>
@@ -57,6 +62,7 @@ export default function Component() {
             <Link
               className="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-blue-800 active:bg-blue-700 rounded-lg w-full h-full"
               to={"/dashboard?tab=users"}
+              prefetch={shouldPrefetch ? "true" : undefined}
             >
               <UsersIcon className="w-5 h-5" />
               <span className="hidden md:inline">Users</span>
@@ -66,6 +72,7 @@ export default function Component() {
             <Link
               className="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-blue-800 active:bg-blue-700 rounded-lg w-full h-full"
               to={"/dashboard?tab=posts"}
+              prefetch={shouldPrefetch ? "true" : undefined}
             >
               <FileTextIcon className="w-5 h-5" />
               <span className="hidden md:inline">Posts</span>

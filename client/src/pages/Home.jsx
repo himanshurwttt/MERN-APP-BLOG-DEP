@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function Home() {
+  const shouldPrefetch = true;
   return (
     <div className="flex flex-col min-h-[100vh]">
       <main className="flex-1 m-auto bg-blue-100">
@@ -20,7 +21,7 @@ export default function Home() {
                 <Link
                   to={"/posts"}
                   className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50  active:scale-[0.98] scale-[1] duration-150"
-                  prefetch={false}
+                  prefetch={shouldPrefetch ? "true" : undefined}
                 >
                   Read the Blogs
                 </Link>

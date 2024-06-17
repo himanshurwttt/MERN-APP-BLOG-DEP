@@ -21,7 +21,6 @@ export default function AllPosts() {
         );
         setFetchProcess(false);
       } else {
-        console.log(data.post.slug);
         setPosts(data.post);
         setFetchProcess(false);
       }

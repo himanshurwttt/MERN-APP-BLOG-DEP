@@ -8,6 +8,7 @@ export default function dashUsers() {
   const [fetchProcess, setFetchProcess] = useState(false);
   const [fetchError, setFetchError] = useState(null);
   const [errorAlert, setErrorAlert] = useState(null);
+  const shouldPrefetch = true;
   const fetchUsers = async () => {
     try {
       setFetchProcess(true);
@@ -56,6 +57,7 @@ export default function dashUsers() {
           <Link
             to={"/signin"}
             onClick={setFetchError(null)}
+            prefetch={shouldPrefetch ? "true" : undefined}
             className="underline text-blue-700"
           >
             Login?

@@ -9,6 +9,8 @@ import commentRouter from "./routes/comment.route.js";
 import helmet from "helmet";
 import morgan from "morgan";
 import logger from "./logger.js";
+import path from "path";
+import { fileURLToPath } from "url";
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -34,12 +36,13 @@ app.use("/api/auth", authRouter);
 app.use("/api/post", postRouter);
 app.use("/api/comment", commentRouter);
 
-app.use(express.static(path.join(__dirname, "/client/dist")));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-});
+// Assuming your client build output is in 'client/dist'
+const clientDistPath = path.join(__dirname, "..", "client", "dist");
 
+app.use(express.static(clientDistPath));
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.statusCode || 500).send({

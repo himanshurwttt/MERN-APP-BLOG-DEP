@@ -8,6 +8,7 @@ export default function DashProfile() {
   const [deleteModal, setDeleteModal] = useState(false);
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const shouldPrefetch = true;
 
   const handleSignOut = async () => {
     try {
@@ -87,6 +88,7 @@ export default function DashProfile() {
             <div className="flex justify-end">
               <Link
                 onClick={() => setDeleteModal(true)}
+                prefetch={shouldPrefetch ? "true" : undefined}
                 className="text-red-600 font-[500] text-sm"
               >
                 Delete Account?
@@ -114,7 +116,10 @@ export default function DashProfile() {
           </div>
           <div className="buttons flex flex-col md:flex-row gap-5">
             <div className="update w-full">
-              <Link to={"/dashboard?tab=updateprofile"}>
+              <Link
+                to={"/dashboard?tab=updateprofile"}
+                prefetch={shouldPrefetch ? "true" : undefined}
+              >
                 <button className="w-full  font-semibold text-white bg-blue-800 p-3 shadow-lg rounded-full active:scale-[0.95] duration-100 drop-shadow-xl focus:outline-none">
                   Update
                 </button>

@@ -8,7 +8,7 @@ export default function CommentSection({ postId }) {
   const [formError, setFormError] = useState(null);
   const { currentUser } = useSelector((state) => state.user);
   const [postComments, setPostComments] = useState([]);
-
+  const shouldPrefetch = true;
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (comment.length == 0) {
@@ -127,6 +127,7 @@ export default function CommentSection({ postId }) {
               Sign In first to make a Comment{" "}
               <Link
                 to={"/signin"}
+                prefetch={shouldPrefetch ? "true" : undefined}
                 className="text-blue-600 underline font-[500]"
               >
                 {" "}

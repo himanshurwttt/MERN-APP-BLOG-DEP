@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Modal from "./Modal";
 
 export default function DashContentBox({ post, refetchPosts }) {
+  const shouldPrefetch = true;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
@@ -30,13 +31,19 @@ export default function DashContentBox({ post, refetchPosts }) {
             {ReactHtmlParser(post.content)}
           </div>
           <div className="flex w-52 md:w-full  justify-between text-xs md:text-sm  gap-1">
-            <Link to={`/posts/${post.slug}`}>
+            <Link
+              to={`/posts/${post.slug}`}
+              prefetch={shouldPrefetch ? "true" : undefined}
+            >
               <button className="flex items-center gap-2 text-blue-800 hover:underline">
                 Read
                 <FaArrowRight />
               </button>
             </Link>
-            <Link to={`/updatepost/${post._id}`}>
+            <Link
+              to={`/updatepost/${post._id}`}
+              prefetch={shouldPrefetch ? "true" : undefined}
+            >
               <button className="flex items-center gap-2 text-blue-800 hover:underline">
                 Update
                 <IoCreate />

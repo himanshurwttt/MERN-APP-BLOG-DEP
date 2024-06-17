@@ -14,6 +14,7 @@ import { auth, provider } from "../firebase"; // Import from your firebase.js fi
 import { signInWithRedirect, getRedirectResult } from "firebase/auth";
 
 const SignIn = () => {
+  const shouldPrefetch = true;
   const [type, setType] = useState("password");
   const [formData, setFormData] = useState({});
   const [formError, setFormError] = useState(null);
@@ -189,7 +190,11 @@ const SignIn = () => {
               </div>
               <p className="text-sm">
                 don't have an account?{" "}
-                <Link className="text-blue-600" to={"/signup"}>
+                <Link
+                  className="text-blue-600"
+                  to={"/signup"}
+                  prefetch={shouldPrefetch ? "true" : undefined}
+                >
                   SignUp
                 </Link>
               </p>
