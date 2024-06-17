@@ -4,11 +4,17 @@
 [build]
   # Directory to change to before starting a build
   base = "client"
+  
   # Build command to run (assuming your project uses npm)
   command = "npm run build"
+  
   # Directory that should be deployed
   publish = "client/dist"
-  environment = { NODE_ENV = "production" }
+  
+  # Environment variables for the build phase
+  environment = { 
+    NODE_ENV = "production"
+  }
 
 # Redirects settings
 [[redirects]]
@@ -17,10 +23,12 @@
   to = "/index.html"
   status = 200
 
-# Environment variables for build
+# Environment variables for the build phase
 [build.environment]
   # Specify the Node.js version (adjust according to your project's requirements)
   NODE_VERSION = "14"
+  
+  # Allow all dependencies in node_modules/vite
   node_modules/vite = "*"
 
 # Production environment variables
