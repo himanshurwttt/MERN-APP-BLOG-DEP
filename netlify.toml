@@ -19,9 +19,8 @@
 
 # Environment variables for build
 [build.environment]
-  # Specify the Node.js version (adjust according to your project's requirements)
   NODE_VERSION = "14"
-   node_modules/vite = "*"
+  node_modules/vite = "*"
 
 # Production environment variables
 [context.production.environment]
