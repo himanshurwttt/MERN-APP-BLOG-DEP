@@ -1,11 +1,16 @@
 [build]
-base = "client/dist"
-command = "npm run build"
-publish = "client/dist"
+  base = "client/dist"  # Specify the correct base directory here
+  command = "npm run build"  # Your build command
+  publish = "client/dist"  # Directory to deploy
 
+[build.environment]
+  NODE_VERSION = "14"  # Example of environment variable
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
-[dev]
-  command = "npm run dev"
+[context.production.environment]
+  NODE_ENV = "production"
+
