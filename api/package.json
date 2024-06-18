@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npm install --legacy-peer-deps && npm install --prefix ../client --legacy-peer-deps && npm run build --prefix ../client --legacy-peer-deps",
+    "start": "node index.js",
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "build": "npm install && npm run lint && npm test"
   },
   "author": "",
   "license": "ISC",
