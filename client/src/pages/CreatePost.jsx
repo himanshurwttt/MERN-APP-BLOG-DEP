@@ -72,7 +72,7 @@ const CreatePost = () => {
     }
     try {
       const image = await handleImageUpload();
-      const res = await fetch(`api/post/createpost/${currentUser._id}`, {
+      const res = await fetch(`/api/post/createpost/${currentUser._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

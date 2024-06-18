@@ -45,7 +45,7 @@ const SignUp = () => {
     }
     try {
       dispatch(signUpStart());
-      const res = await fetch("api/auth/signup", {
+      const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const SignUp = () => {
   const fetchUserData = async (user) => {
     setSignInProcess(true);
     try {
-      const response = await fetch("api/auth/google", {
+      const response = await fetch("/api/auth/google", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -76,7 +76,7 @@ export default function UpdateProfile() {
     }
     try {
       const profilePicture = await handleImageUpload();
-      const res = await fetch(`api/user/updateUser/${currentUser._id}`, {
+      const res = await fetch(`/api/user/updateUser/${currentUser._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

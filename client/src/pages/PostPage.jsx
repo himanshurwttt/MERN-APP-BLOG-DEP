@@ -8,11 +8,12 @@ export default function PostPage() {
   const { slug } = useParams();
   const [fetchError, setFetchError] = useState(null);
   const [postData, setPostData] = useState(null);
+  console.log(slug);
   useEffect(() => {
     try {
       const fetchData = async () => {
         try {
-          const res = await fetch(`api/post/getpost?slug=${slug}`);
+          const res = await fetch(`/api/post/getpost?slug=${slug}`);
           const data = await res.json();
 
           if (!res.ok) {

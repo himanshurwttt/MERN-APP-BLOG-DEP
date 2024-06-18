@@ -12,7 +12,7 @@ export default function DashProfile() {
 
   const handleSignOut = async () => {
     try {
-      const res = await fetch("api/auth/signout", {
+      const res = await fetch("/api/auth/signout", {
         method: "POST",
       });
       const data = await res.json();
@@ -28,7 +28,7 @@ export default function DashProfile() {
 
   const handleDeleteUser = async () => {
     try {
-      const res = await fetch(`api/user/deleteuser/${currentUser._id}`, {
+      const res = await fetch(`/api/user/deleteuser/${currentUser._id}`, {
         method: "DELETE",
       });
       const data = await res.json();

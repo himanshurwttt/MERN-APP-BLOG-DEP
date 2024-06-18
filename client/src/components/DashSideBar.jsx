@@ -8,7 +8,7 @@ export default function Component() {
   const dispatch = useDispatch();
   const handleSignOut = async () => {
     try {
-      const res = await fetch("api/auth/signout", {
+      const res = await fetch("/api/auth/signout", {
         method: "POST",
       });
       if (res.ok) {
