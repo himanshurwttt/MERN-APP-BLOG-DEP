@@ -15,7 +15,7 @@ export default function CommentSection({ postId }) {
       setFormError("comment should not be empty");
     }
     try {
-      const res = await fetch(`/api/comment/create/${currentUser._id}`, {
+      const res = await fetch(`api/comment/create/${currentUser._id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -44,7 +44,7 @@ export default function CommentSection({ postId }) {
 
   const fetchComments = async () => {
     try {
-      const res = await fetch(`/api/comment/getComments/${postId}`);
+      const res = await fetch(`api/comment/getComments/${postId}`);
       const data = await res.json();
       if (res.ok) {
         data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -67,7 +67,7 @@ export default function CommentSection({ postId }) {
 
   const handleDelete = async (commentId) => {
     try {
-      const res = await fetch(`/api/comment/delete/${commentId}`, {
+      const res = await fetch(`api/comment/delete/${commentId}`, {
         method: "DELETE",
       });
       if (res.ok) {

@@ -27,7 +27,7 @@ export default function Home() {
                 </Link>
               </div>
               <img
-                src="../../public/images/02.jpg"
+                src="/images/02.jpg"
                 height="550"
                 alt="Hero"
                 className="mx-auto drop-shadow-xl aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"

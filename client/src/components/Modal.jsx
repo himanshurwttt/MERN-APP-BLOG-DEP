@@ -6,7 +6,7 @@ const Modal = ({ isOpen, closeModal, postId, refetchPosts }) => {
     if (!postId) {
       setDeletePostError("can't able to delete post now");
     }
-    const res = await fetch(`/api/post/deletepost/${postId}`, {
+    const res = await fetch(`api/post/deletepost/${postId}`, {
       method: "DELETE",
     });
     const data = await res.json();

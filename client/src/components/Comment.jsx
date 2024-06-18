@@ -17,7 +17,7 @@ export default function Comment({ comment, refetchComments, handleDelete }) {
 
   const fetchCommentUsers = async () => {
     try {
-      const res = await fetch(`/api/comment/getCommentUser/${comment.userId}`);
+      const res = await fetch(`api/comment/getCommentUser/${comment.userId}`);
       const data = await res.json();
       if (res.ok) {
         setCommentUser(data);
@@ -29,7 +29,7 @@ export default function Comment({ comment, refetchComments, handleDelete }) {
 
   const handleLike = async () => {
     try {
-      const res = await fetch(`/api/comment/like/${comment._id}`, {
+      const res = await fetch(`api/comment/like/${comment._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -53,9 +53,12 @@ export default function Comment({ comment, refetchComments, handleDelete }) {
 
   const handleEditComment = async () => {
     try {
-      const res = await fetch(`/api/comment/edit/${comment._id}`, {
+      const res = await fetch(`api/comment/edit/${comment._id}`, {
         method: "PUT",
-        body: JSON.stringify({ content: editContent, userId: comment.userId }),
+        body: JSON.stringify({
+          content: editContent,
+          userId: comment.userId,
+        }),
         headers: {
           "Content-Type": "application/json",
         },

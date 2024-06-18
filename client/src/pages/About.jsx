@@ -19,7 +19,7 @@ export default function About() {
                 </div>
               </div>
               <img
-                src={"../../public/images/01.jpg"}
+                src={"/images/01.jpg"}
                 width="550"
                 height="550"
                 alt="Hero"

@@ -12,7 +12,7 @@ export default function dashUsers() {
   const fetchUsers = async () => {
     try {
       setFetchProcess(true);
-      const res = await fetch("/api/user/getUsers");
+      const res = await fetch("api/user/getUsers");
       const data = await res.json();
       if (!res.ok) {
         setFetchProcess(false);
@@ -33,7 +33,7 @@ export default function dashUsers() {
 
   const handleDelete = async (userId) => {
     try {
-      const res = await fetch(`/api/user/deleteuser/${userId}`, {
+      const res = await fetch(`api/user/deleteuser/${userId}`, {
         method: "DELETE",
       });
       const data = await res.json();

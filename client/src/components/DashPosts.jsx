@@ -11,7 +11,7 @@ export default function DashPosts() {
   const fetchData = async () => {
     setFetchProcess(true);
     try {
-      const res = await fetch("/api/post/getpost?startIndex=0");
+      const res = await fetch("api/post/getpost?startIndex=0");
       const data = await res.json();
       if (!res.ok) {
         console.log("something went wrong");
@@ -41,7 +41,7 @@ export default function DashPosts() {
   const handleShowMore = async () => {
     setFetchProcess(true);
     try {
-      const res = await fetch(`/api/post/getpost?startIndex=${index + 8}`);
+      const res = await fetch(`api/post/getpost?startIndex=${index + 8}`);
       const data = await res.json();
       if (res.ok) {
         setPosts(data.post);
@@ -65,7 +65,7 @@ export default function DashPosts() {
     setFetchProcess(true);
     try {
       const newIndex = Math.max(index - 8, 0); // Ensure index does not go below 0
-      const res = await fetch(`/api/post/getpost?startIndex=${newIndex}`);
+      const res = await fetch(`api/post/getpost?startIndex=${newIndex}`);
       const data = await res.json();
       if (res.ok) {
         setFetchProcess(false);

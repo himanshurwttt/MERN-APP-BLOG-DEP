@@ -34,7 +34,7 @@ const UpdatePost = () => {
     try {
       console.log("Post ID:", params.postId);
       const fetchData = async () => {
-        const res = await fetch(`/api/post/getpost?postId=${params.postId}`);
+        const res = await fetch(`api/post/getpost?postId=${params.postId}`);
         const data = await res.json();
 
         if (!res.ok) {
@@ -101,7 +101,7 @@ const UpdatePost = () => {
       console.log(formData.title);
       const image = await handleImageUpload();
       console.log(imageUrl);
-      const res = await fetch(`/api/post/updatepost/${params.postId}`, {
+      const res = await fetch(`api/post/updatepost/${params.postId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
