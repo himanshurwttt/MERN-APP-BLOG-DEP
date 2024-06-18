@@ -12,6 +12,7 @@
   "dependencies": {
     "@gsap/react": "^2.1.1",
     "@reduxjs/toolkit": "^2.2.5",
+    "api": "file:../api",
     "ckeditor4-react": "^5.1.0",
     "date-fns": "^3.6.0",
     "firebase": "^10.12.2",
